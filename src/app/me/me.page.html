@@ -1,9 +1,22 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Me</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Me</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <ion-button expand="block" (click)="onClick()">
+        Ionic 4 Picker
+    </ion-button>
+    <ion-virtual-scroll [items]="items" approxItemHeight="320px">
+        <ion-card *virtualItem="let item;">
+            <div>
+                <ion-img style="height: 230px" [src]="item.imgSrc" [ngStyle]="{'height': item.imgHeight}" [alt]="item.name"></ion-img>
+            </div>
+            <ion-card-header>
+                <ion-card-title>{{ item.name }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>{{ item.content }}</ion-card-content>
+        </ion-card>
+    </ion-virtual-scroll>
 </ion-content>
